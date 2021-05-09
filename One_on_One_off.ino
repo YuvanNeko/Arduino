@@ -29,7 +29,7 @@ YT_dt = Clock.getDate();
 
 switch (YT_hr){
 
-  case 07 ... 17:
+  case 7 ... 17:
   delay(1000);
   Serial.print(YT_dt); 
   Serial.print('/');
@@ -54,7 +54,7 @@ default :
   digitalWrite(5, LOW);
   digitalWrite(3, HIGH);
   delay(3000);
-  if (YT_hr >= 7){
+  if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
   }
   digitalWrite(3, LOW);
@@ -62,7 +62,7 @@ default :
   digitalWrite(12, HIGH);
   digitalWrite(7, HIGH);
   delay(3600000);
-   if (YT_hr >= 7){
+   if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
   }
   digitalWrite(13, LOW);
@@ -70,7 +70,7 @@ default :
   digitalWrite(7, LOW);
   digitalWrite(5, HIGH);
   delay(3600000);
-   if (YT_hr >= 7){
+   if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
   }
   digitalWrite(13, HIGH);
@@ -78,7 +78,7 @@ default :
   digitalWrite(5, LOW);
   digitalWrite(3, HIGH);
   delay(3600000);
-   if (YT_hr >= 7){
+   if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
   }
   digitalWrite(13, LOW);
@@ -87,7 +87,7 @@ default :
   digitalWrite(5, HIGH);
   digitalWrite(7, HIGH);
   delay(3600000);
-   if (YT_hr >= 7){
+   if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
   }
   digitalWrite(3, LOW);
