@@ -15,9 +15,17 @@ void setup ()
   pinMode (13, OUTPUT);
   pinMode (12, OUTPUT);
 }
+void resetPins(){
+  digitalWrite(3, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(7, LOW);
+  digitalWrite(13, LOW);
+  digitalWrite(12, LOW);
+}
 void loop ()
 {
   loop:
+  resetPins();
   int YT_sec, YT_min, YT_hr, YT_yr, YT_mt, YT_dt;
 
 YT_sec = Clock.getSecond();
@@ -87,12 +95,12 @@ default :
   digitalWrite(5, HIGH);
   digitalWrite(7, HIGH);
   delay(3600000);
-   if (YT_hr >= 7 && YT_hr <= 17){
-    goto loop;
-  }
   digitalWrite(3, LOW);
   digitalWrite(5, LOW);
   digitalWrite(7, LOW);
+  if (YT_hr >= 7 && YT_hr <= 17){
+    goto loop;
+  }
   break;
 }
 }
