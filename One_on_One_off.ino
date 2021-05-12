@@ -64,6 +64,7 @@ default :
   delay(3000);
   if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
+    break;
   }
   digitalWrite(3, LOW);
   digitalWrite(13, HIGH);
@@ -72,6 +73,7 @@ default :
   delay(3600000);
    if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
+    break;
   }
   digitalWrite(13, LOW);
   digitalWrite(12, LOW);
@@ -80,6 +82,7 @@ default :
   delay(3600000);
    if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
+    break;
   }
   digitalWrite(13, HIGH);
   digitalWrite(12, HIGH);
@@ -88,6 +91,7 @@ default :
   delay(3600000);
    if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
+    break;
   }
   digitalWrite(13, LOW);
   digitalWrite(12, LOW);
@@ -100,6 +104,7 @@ default :
   digitalWrite(7, LOW);
   if (YT_hr >= 7 && YT_hr <= 17){
     goto loop;
+    break;
   }
   break;
 }
