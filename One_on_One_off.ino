@@ -24,8 +24,6 @@ void resetPins(){
 }
 void loop ()
 {
-  loop:
-  resetPins();
   int YT_sec, YT_min, YT_hr, YT_yr, YT_mt, YT_dt;
 
 YT_sec = Clock.getSecond();
@@ -62,50 +60,28 @@ default :
   digitalWrite(5, LOW);
   digitalWrite(3, HIGH);
   delay(3000);
-  if (YT_hr >= 7 && YT_hr <= 17){
-    goto loop;
-    break;
-  }
   digitalWrite(3, LOW);
   digitalWrite(13, HIGH);
   digitalWrite(12, HIGH);
   digitalWrite(7, HIGH);
   delay(3600000);
-   if (YT_hr >= 7 && YT_hr <= 17){
-    goto loop;
-    break;
-  }
   digitalWrite(13, LOW);
   digitalWrite(12, LOW);
   digitalWrite(7, LOW);
   digitalWrite(5, HIGH);
   delay(3600000);
-   if (YT_hr >= 7 && YT_hr <= 17){
-    goto loop;
-    break;
-  }
   digitalWrite(13, HIGH);
   digitalWrite(12, HIGH);
   digitalWrite(5, LOW);
   digitalWrite(3, HIGH);
   delay(3600000);
-   if (YT_hr >= 7 && YT_hr <= 17){
-    goto loop;
-    break;
-  }
   digitalWrite(13, LOW);
   digitalWrite(12, LOW);
   digitalWrite(3, HIGH);
   digitalWrite(5, HIGH);
   digitalWrite(7, HIGH);
   delay(3600000);
-  digitalWrite(3, LOW);
-  digitalWrite(5, LOW);
-  digitalWrite(7, LOW);
-  if (YT_hr >= 7 && YT_hr <= 17){
-    goto loop;
-    break;
-  }
+  resetPins();
   break;
 }
 }
