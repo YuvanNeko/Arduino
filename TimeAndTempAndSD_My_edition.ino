@@ -22,6 +22,7 @@ void setup () {
 
     Wire.begin();
     Serial.begin(57600);
+    pinMode(9, INPUT_PULLUP);
     pinMode(4, OUTPUT);
     pinMode(3, OUTPUT);
     pinMode(6, OUTPUT);
@@ -83,11 +84,12 @@ if (myFile) {
   Serial.print(':');
   Serial.print(YT_min);
   Serial.print(':');
-  Serial.print(YT_sec); 
+  Serial.println(YT_sec); 
   Serial.println(temp1);
   Serial.println(temp2);
   Serial.println("card write successful");
-  if(temp1 >= 35.00 || temp1 <= 28.00){
+  int buttonVal = digitalRead(9);
+  if(temp1 >= 35.00 || temp1 <= 28.00 && buttonVal == 0){
     digitalWrite(6, LOW);
     delay(1000);
     digitalWrite(6, HIGH);
