@@ -2,8 +2,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char *ssid     = "Home Network Extended";
-const char *password = "Idonthinkyoushouldbedoingthis";
+const char *ssid     = "your-ssid";
+const char *password = "your-password";
 const char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, 19800);
