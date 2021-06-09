@@ -6,7 +6,7 @@ const char *ssid     = "your-ssid";
 const char *password = "your-password";
 const char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, 19800);
+NTPClient timeClient(ntpUDP, your offset);
 
 void setup(){
   Serial.begin(115200);
