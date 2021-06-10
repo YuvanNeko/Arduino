@@ -3,15 +3,16 @@
 #include <WiFiUdp.h>
 #include <ESP8266WebServer.h>
 
-const char *ssid     = "your ssid";
-const char *password = "your password";
+const char *ssid     = "Home Network Extended";
+const char *password = "Idonthinkyoushouldbedoingthis";
 const char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 const int dt = 1000;
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, your offset);
+NTPClient timeClient(ntpUDP, 19800);
 
 void setup(){
   Serial.begin(115200);
+  pinMode(D3, INPUT_PULLUP);
   pinMode(D4, OUTPUT);
   pinMode(D5, OUTPUT);
   digitalWrite(D4, HIGH);
@@ -30,10 +31,13 @@ void setup(){
 }
 
 void alarm(){
-  digitalWrite(D4, LOW);
-  delay(dt);
-  digitalWrite(D4, HIGH);
-  delay(dt);
+  int buttonVal = digitalRead(D3);
+    if (buttonVal == 0){
+      digitalWrite(D4, LOW);
+      delay(dt);
+      digitalWrite(D4, HIGH);
+      delay(dt);
+    }
 }
 void printime(){
   timeClient.update();
