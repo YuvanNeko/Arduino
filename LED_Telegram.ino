@@ -3,10 +3,10 @@
 #include <UniversalTelegramBot.h>
 #include <ArduinoJson.h>
 
-const char *ssid     = "Home Network Extended";
-const char *password = "Idonthinkyoushouldbedoingthis";
+const char *ssid     = "your ssid";
+const char *password = "your password";
 
-#define TELEGRAM_BOT_TOKEN "1738735467:AAHMehIT-6QuyUHAbxrTrObKp-_0xRCX3pY"
+#define TELEGRAM_BOT_TOKEN "your token"
 
 WiFiClientSecure client;
 UniversalTelegramBot bot(TELEGRAM_BOT_TOKEN, client);
