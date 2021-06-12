@@ -5,17 +5,17 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
-const char *ssid     = "your ssid";
-const char *password = "your password";
+const char *ssid     = "Home Network Extended";
+const char *password = "Idonthinkyoushouldbedoingthis";
 
 const int dt = 1000;
 const unsigned long d = 1000;
-const String ID = String(your telegram ID);
+const String ID = String(1494708209);
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, 19800);
 
-#define TELEGRAM_BOT_TOKEN "your token"
+#define TELEGRAM_BOT_TOKEN "1738735467:AAHMehIT-6QuyUHAbxrTrObKp-_0xRCX3pY"
 
 WiFiClientSecure client;
 UniversalTelegramBot bot(TELEGRAM_BOT_TOKEN, client);
@@ -154,9 +154,6 @@ void loop() {
       }
     for(int j = 0; j <= 5; j++){
       tele();
-      if (hr == 5 && AlarmState == false){
-        AlarmState == true;
-      }
       delay(350);
     } 
   }
