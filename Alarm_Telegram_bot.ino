@@ -5,17 +5,17 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
-const char *ssid     = "Home Network Extended";
-const char *password = "Idonthinkyoushouldbedoingthis";
+const char *ssid     = "your ssi";
+const char *password = "your password";
 
 const int dt = 1000;
 const unsigned long d = 1000;
-const String ID = String(1494708209);
+const String ID = String(youy ID);
 
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, 19800);
+NTPClient timeClient(ntpUDP, your offset);
 
-#define TELEGRAM_BOT_TOKEN "1738735467:AAHMehIT-6QuyUHAbxrTrObKp-_0xRCX3pY"
+#define TELEGRAM_BOT_TOKEN "your token"
 
 WiFiClientSecure client;
 UniversalTelegramBot bot(TELEGRAM_BOT_TOKEN, client);
