@@ -5,17 +5,17 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
-const char *ssid     = "your ssi";
-const char *password = "your password";
+const char *ssid     = "Home Network Extended";
+const char *password = "Idonthinkyoushouldbedoingthis";
 
 const int dt = 1000;
-const unsigned long d = 1000;
-const String ID = String(youy ID);
+const unsigned long d = 60000;
+const String ID = String(1494708209);
 
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, your offset);
+NTPClient timeClient(ntpUDP, 19800);
 
-#define TELEGRAM_BOT_TOKEN "your token"
+#define TELEGRAM_BOT_TOKEN "1738735467:AAHMehIT-6QuyUHAbxrTrObKp-_0xRCX3pY"
 
 WiFiClientSecure client;
 UniversalTelegramBot bot(TELEGRAM_BOT_TOKEN, client);
@@ -80,7 +80,7 @@ void handleNewMessages(int numNewMessages) {
 
        if(text == F("Uptime")){
           bot.sendMessage(chat_id, "Your up time is :");
-          bot.sendMessage(chat_id, String((millis()/d)/60));
+          bot.sendMessage(chat_id, String((millis()/d)));
           bot.sendMessage(chat_id, "minutes.");
         }
 
