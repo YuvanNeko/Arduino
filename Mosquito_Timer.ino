@@ -2,15 +2,15 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char *ssid     = "Home Network";
-const char *password = "Idonthinkyoushouldbedoingthis";
+const char *ssid     = "Your SSID";
+const char *password = "Your password";
 const char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 String Week;
 int Hour;
 int Minute;
 int Second;
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, 19800);
+NTPClient timeClient(ntpUDP, Youroffset);
 
 void setup(){
   Serial.begin(115200);
