@@ -4,11 +4,7 @@
 
 const char *ssid     = "Home Network";
 const char *password = "Idonthinkyoushouldbedoingthis";
-const char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-String Week;
 int Hour;
-int Minute;
-int Second;
 int Pin1;
 int Pin2;
 WiFiUDP ntpUDP;
@@ -32,10 +28,7 @@ void setup(){
 
 void WiFiTime(){
   timeClient.update();
-  Week = daysOfTheWeek[timeClient.getDay()];
   Hour = timeClient.getHours();
-  Minute = timeClient.getMinutes();
-  Second = timeClient.getSeconds();
 }
 
 void MQ(){
