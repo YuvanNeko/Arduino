@@ -2,19 +2,23 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char *ssid     = "Your SSID";
-const char *password = "Your password";
+const char *ssid     = "Home Network";
+const char *password = "Idonthinkyoushouldbedoingthis";
 const char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 String Week;
 int Hour;
 int Minute;
 int Second;
+int Pin1;
+int Pin2;
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, Youroffset);
+NTPClient timeClient(ntpUDP, 19800);
 
 void setup(){
   Serial.begin(115200);
   pinMode(D2, OUTPUT);
+  pinMode(D3, INPUT_PULLUP);
+  pinMode(D8, INPUT_PULLUP);
 
   WiFi.begin(ssid, password);
 
@@ -33,28 +37,38 @@ void WiFiTime(){
   Minute = timeClient.getMinutes();
   Second = timeClient.getSeconds();
 }
+
+void MQ(){
+  digitalWrite(D2, HIGH);
+  delay(3600000);
+  digitalWrite(D2, LOW);
+  delay(3600000);
+}
+
+void MO(){
+  Pin2 = digitalRead(D8);
+  if (Pin2 == 0){
+    digitalWrite(D2, HIGH);
+  }
+  else{
+    digitalWrite(D2, LOW);
+  }
+}
 void loop() {
   WiFiTime();
   delay(1000);
   
   switch (Hour){
 
-  case 7 ... 17:
-  delay(1000);
-  Serial.print(Week); 
-  Serial.print(', ');
-  Serial.print(Hour);
-  Serial.print(':');
-  Serial.print(Minute);
-  Serial.print(':');
-  Serial.print(Second);
+  case 7 ... 16:
+  MO();
 break;
 
   default:
-  digitalWrite(D2, HIGH);
-  delay(3600000);
-  digitalWrite(D2, LOW);
-  delay(3600000);
+  Pin1 = digitalRead(D3);
+  if(Pin1 == 0){
+    MQ();
+  }
   break;
   }
 }
