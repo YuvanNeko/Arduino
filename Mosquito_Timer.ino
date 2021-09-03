@@ -42,9 +42,13 @@ void MO(){
   Pin2 = digitalRead(D8);
   if (Pin2 == 0){
     digitalWrite(D2, HIGH);
+    delay(60000);
+    Pin2 = digitalRead(D8);
   }
   else{
     digitalWrite(D2, LOW);
+    delay(60000);
+    Pin2 = digitalRead(D8);
   }
 }
 void loop() {
